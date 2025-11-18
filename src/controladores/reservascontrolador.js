@@ -2,7 +2,7 @@ import { validationResult } from 'express-validator';
 import * as reservasSrv from '../servicios/reservasServicios.js';
 
 
-// Cliente: Listar MIS reservas
+//mis reservas
 
 export const listarMias = async (req, res) => {
   try {
@@ -14,7 +14,7 @@ export const listarMias = async (req, res) => {
   }
 };
 
-// Cliente: Crear reserva
+//crear reservas
 
 export const crearReservaCliente = async (req, res) => {
   const errors = validationResult(req);
@@ -28,7 +28,7 @@ export const crearReservaCliente = async (req, res) => {
 
     const id = await reservasSrv.crearReservaCliente(payload);
 
-    res.status(201).json({ id, message: 'Reserva creada correctamente' });
+    res.status(201).json({ id, message: 'Reserva creada' });
   } catch (e) {
     console.error('Error crearReservaCliente:', e);
     res.status(500).json({ message: 'Error al crear reserva' });
@@ -36,7 +36,7 @@ export const crearReservaCliente = async (req, res) => {
 };
 
 
-// Empleado/Admin: Listar todas las reservas
+//todas las reservas
 
 export const getReservas = async (_req, res) => {
   try {
@@ -49,7 +49,7 @@ export const getReservas = async (_req, res) => {
 };
 
 
-//  Empleado/Admin: Obtener reserva por ID
+//Buscar ID
 
 export const getReservaById = async (req, res) => {
   try {
@@ -66,7 +66,7 @@ export const getReservaById = async (req, res) => {
 };
 
 
-// Admin: Actualizar reserva
+//actualizar
 
 export const updateReserva = async (req, res) => {
   const errors = validationResult(req);
@@ -86,7 +86,7 @@ export const updateReserva = async (req, res) => {
 };
 
 
-// Admin: Eliminar (baja lógica)
+//soft delet
 
 export const deleteReserva = async (req, res) => {
   try {

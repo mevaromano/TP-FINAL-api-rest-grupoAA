@@ -34,7 +34,7 @@ export const findByNombreUsuario = async (nombre_usuario) => {
   return rows[0];
 };
 
-// Crear usuario (bcrypt ya viene hasheado desde servicio)
+// Crear usuario
 export const insert = async (usuario) => {
   const {
     nombre,

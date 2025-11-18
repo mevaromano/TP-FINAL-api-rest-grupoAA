@@ -22,7 +22,7 @@ export const updateTurno = async (id, data) => {
   return filas;
 };
 
-// Baja lógica
+// Baja logica
 export const deleteTurno = async (id) => {
   const filas = await dao.softDelete(id);
   return filas;

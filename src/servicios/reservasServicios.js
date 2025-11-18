@@ -4,21 +4,21 @@ import NotificacionesService from './notificacioneservicio.js';
 const noti = new NotificacionesService();
 
 
-//  Cliente crea una reserva
+//crear reserva cleinte
 
 export const crearReservaCliente = async (data) => {
 
-  // 1) Insert de la reserva
+  //1-Insert de la reserva
   const reservaId = await dao.insertReserva(data);
 
-  // 2) Datos para el correo
+  //2-Datos para el correo
   const info = await dao.getDatosCorreo(
     data.usuario_id,
     data.salon_id,
     data.turno_id
   );
 
-  // 3) Notificar cliente y admin
+  //3-Notificar cliente y admin
   try {
     await noti.enviarCorreo({
       to: info.email,
@@ -37,7 +37,7 @@ export const crearReservaCliente = async (data) => {
     }
 
   } catch (err) {
-    console.error('⚠ Error al enviar correo:', err.message);
+    console.error('Error al enviar correo:', err.message);
   }
 
   return reservaId;
@@ -69,7 +69,7 @@ export const updateReserva = async (id, data) => {
 };
 
 
-// Admin: baja lógica de reserva
+// Admin: baja logica de reserva
 export const deleteReserva = async (id) => {
   return await dao.deleteReserva(id);
 };

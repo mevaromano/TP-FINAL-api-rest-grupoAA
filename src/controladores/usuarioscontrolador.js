@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import * as usrv from '../servicios/usuariosServicios.js';
 
 
-// Listar todos los usuarios (Admin)
+//lista de usuarios
 
 export const getUsuarios = async (_req, res) => {
   try {
@@ -16,7 +16,7 @@ export const getUsuarios = async (_req, res) => {
 };
 
 
-// Obtener un usuario por ID (Admin)
+//buscar por id
 
 export const getUsuarioById = async (req, res) => {
   try {
@@ -30,7 +30,7 @@ export const getUsuarioById = async (req, res) => {
 };
 
 
-// Listar clientes (Empleado o Admin)
+//clientes lista
 
 export const getClientes = async (_req, res) => {
   try {
@@ -43,7 +43,7 @@ export const getClientes = async (_req, res) => {
 };
 
 
-// Crear usuario (Admin)
+// Crear usuario.admin
 
 export const createUsuario = async (req, res) => {
   try {
@@ -80,7 +80,7 @@ export const createUsuario = async (req, res) => {
 };
 
 
-// Actualizar usuario (Admin)
+//actualizar usuario. admin
 
 export const updateUsuario = async (req, res) => {
   try {
@@ -106,7 +106,7 @@ export const updateUsuario = async (req, res) => {
 };
 
 
-//Baja lógica del usuario (Admin)
+//soft delete
 
 export const deleteUsuario = async (req, res) => {
   try {
@@ -114,11 +114,11 @@ export const deleteUsuario = async (req, res) => {
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
     const ok = await usrv.deleteUsuario(req.params.id);
-    if (!ok) return res.status(404).json({ message: 'Usuario no encontrado' });
+    if (!ok) return res.status(404).json({ message: 'usuario no encontrado' });
 
     res.json({ deleted: ok });
   } catch (e) {
     console.error('Error al eliminar usuario:', e);
-    res.status(500).json({ message: 'Error al eliminar usuario' });
+    res.status(500).json({ message: 'error al eliminar usuario' });
   }
 };

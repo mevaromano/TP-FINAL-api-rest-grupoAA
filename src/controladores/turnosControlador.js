@@ -2,7 +2,7 @@ import { validationResult } from 'express-validator';
 import * as turnosservicios from '../servicios/turnosServicios.js';
 
 
-// GET TODOS LOS TURNOS
+//GET TODOS LOS TURNOS
 
 export const getTurnos = async (req, res) => {
   try {
@@ -16,7 +16,7 @@ export const getTurnos = async (req, res) => {
 
 
 
-// GET POR ID
+//GET POR ID
 
 export const getTurnoById = async (req, res) => {
   try {
@@ -31,7 +31,7 @@ export const getTurnoById = async (req, res) => {
 
 
 
-// CREAR TURNO
+//CREAR TURNO
 
 export const createTurno = async (req, res) => {
   const errors = validationResult(req);
@@ -50,7 +50,7 @@ export const createTurno = async (req, res) => {
 
 
 
-// ACTUALIZAR TURNO
+//ACTUALIZAR TURNO
 
 export const updateTurno = async (req, res) => {
 
@@ -77,7 +77,7 @@ export const updateTurno = async (req, res) => {
 
 
 
-// ELIMINAR TURNO (BAJA LOGICA)
+//ELIMINAR TURNO
 
 export const deleteTurno = async (req, res) => {
   try {

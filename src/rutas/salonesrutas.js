@@ -7,19 +7,18 @@ import { requireAuth, empleadoOAdmin, soloAdmin } from '../middlewares/auth.js';
 const router = express.Router();
 const cache = apicache.middleware;
 
-//validaciones
 
-// Validación de ID
+// validacion de ID
 const validateId = [
   param('id')
     .isInt({ gt: 0 })
     .withMessage('El ID debe ser un entero mayor a 0'),
 ];
 
-// Validación de body para crear/editar salón
+// validacion de body para crear y editar
 const validateSalon = [
-  body('titulo').notEmpty().withMessage('El título es obligatorio'),
-  body('direccion').notEmpty().withMessage('La dirección es obligatoria'),
+  body('titulo').notEmpty().withMessage('El titulo es obligatorio'),
+  body('direccion').notEmpty().withMessage('La direccion es obligatoria'),
   body('importe').isFloat({ gt: 0 }).withMessage('El importe debe ser mayor a 0'),
 ];
 
@@ -27,7 +26,7 @@ const validateSalon = [
 
 /**
  * GET /api/salones
- * Público — pero puede estar protegido si tu profe pidió TODO autenticado.
+ * Publico 
  */
 router.get(
   '/',
@@ -37,7 +36,6 @@ router.get(
 
 /**
  * GET /api/salones/:id
- * Público o protegido según requerimiento
  */
 router.get(
   '/:id',

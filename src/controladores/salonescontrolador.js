@@ -59,11 +59,11 @@ export const deleteSalon = async (req, res) => {
   try {
     const deleted = await salonesservicios.deleteSalon(req.params.id);
     if (!deleted) {
-      return res.status(404).json({ message: 'Salon no encontrado' });
+      return res.status(404).json({ message: 'salon no encontrado' });
     }
-    res.json({ message: 'Salon eliminado' });
+    res.json({ message: 'salon eliminado' });
   } catch (error) {
-    console.error('Error al eliminar salon:', error);
+    console.error('error al eliminar salon:', error);
     res.status(500).json({ message: 'Error al eliminar salon' });
   }
 };

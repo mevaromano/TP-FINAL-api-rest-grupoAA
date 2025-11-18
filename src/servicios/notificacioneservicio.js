@@ -16,7 +16,7 @@ export default class NotificacionesService {
     // Transporter Gmail
     this.transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
-      port: 587, // STARTTLS
+      port: 587, 
       secure: false,
       auth: {
         user: process.env.CORREO,
@@ -27,7 +27,7 @@ export default class NotificacionesService {
 
   async verificarSMTP() {
     await this.transporter.verify();
-    console.log('✅ Conexión SMTP verificada correctamente');
+    console.log('Conexion SMTP verificada correctamente');
   }
 
   async enviarCorreo({ to, fecha, salon, turno }) {
@@ -36,11 +36,11 @@ export default class NotificacionesService {
     const info = await this.transporter.sendMail({
       from: process.env.MAIL_FROM,
       to,
-      subject: 'Confirmación de reserva',
+      subject: 'Confirmacion de reserva',
       html
     });
 
-    console.log('📧 Email enviado correctamente a:', to, '| ID:', info.messageId);
+    console.log('Email enviado correctamente a:', to, '| ID:', info.messageId);
     return info;
   }
 }

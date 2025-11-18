@@ -10,7 +10,7 @@ export const login = async (req, res) => {
       'SELECT * FROM usuarios WHERE nombre_usuario = ? AND activo = 1',
       [nombre_usuario.trim()]
     );
-    if (rows.length === 0) return res.status(401).json({ msg: 'credenciales inválidas' });
+    if (rows.length === 0) return res.status(401).json({ msg: 'credenciales invalidas' });
 
     const u = rows[0];
     const stored = u.contrasenia ?? '';
@@ -35,7 +35,7 @@ export const login = async (req, res) => {
       }
     }
 
-    if (!ok) return res.status(401).json({ msg: 'credenciales inválidas' });
+    if (!ok) return res.status(401).json({ msg: 'credenciales invalidas' });
 
     const token = jwt.sign(
       { usuario_id: u.usuario_id, tipo_usuario: u.tipo_usuario, nombre_usuario: u.nombre_usuario },
@@ -45,7 +45,7 @@ export const login = async (req, res) => {
     res.json({ token });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ msg: 'error de autenticación' });
+    res.status(500).json({ msg: 'error de autenticacion' });
   }
 };
 

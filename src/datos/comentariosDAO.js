@@ -23,7 +23,7 @@ export const insert = async ({ reserva_id, usuario_id, texto }) => {
   return result.insertId;
 };
 
-// Baja lógica
+// Baja logica
 export const softDelete = async (id) => {
   const [result] = await pool.query(
     `UPDATE comentarios

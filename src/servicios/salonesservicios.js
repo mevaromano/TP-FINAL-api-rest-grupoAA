@@ -5,25 +5,25 @@ export const getAllSalones = async () => {
   return await dao.findAll();
 };
 
-// Obtener un salón por ID
+// Obtener un salon por ID
 export const getSalonById = async (id) => {
   return await dao.findById(id);
 };
 
-// Crear un nuevo salón
+// Crear un nuevo salon
 export const createSalon = async (data) => {
   const id = await dao.insert(data);
   return id;
 };
 
-// Actualizar un salón
+// Actualizar un salon
 export const updateSalon = async (id, data) => {
   const filas = await dao.update(id, data);
-  return filas;  // 1 si actualizó, 0 si no existe
+  return filas;  
 };
 
-// Baja lógica de un salón
+// Baja logica de un salon
 export const deleteSalon = async (id) => {
   const filas = await dao.softDelete(id);
-  return filas;  // 1 si lo "borró", 0 si no existe
+  return filas;  
 };

@@ -9,14 +9,14 @@ const cache = apicache.middleware;
 
 //validaciones
 
-// Validación de ID
+//validacion de ID
 const validateId = [
   param('id')
     .isInt({ gt: 0 })
     .withMessage('El ID debe ser un entero mayor a 0'),
 ];
 
-// Validación de body para crear/editar servicio
+//validacion de body para crear/editar servicio
 const validateServicio = [
   body('descripcion')
     .notEmpty()
@@ -33,7 +33,7 @@ const validateServicio = [
 
 /**
  * GET /api/servicios
- * Público — listado de servicios
+ * publico
  */
 router.get(
   '/',
@@ -43,7 +43,7 @@ router.get(
 
 /**
  * GET /api/servicios/:id
- * Público
+ * publico
  */
 router.get(
   '/:id',

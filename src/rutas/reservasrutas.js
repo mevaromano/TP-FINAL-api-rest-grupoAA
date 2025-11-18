@@ -34,7 +34,7 @@ const validateUpdate = [
   body('foto_cumpleaniero').optional().isString().isLength({ max: 255 }),
 ];
 
-/* -------------------------------- RUTAS -------------------------------- */
+/* ----------------------- RUTAS ------------------------------ */
 
 // Cliente
 router.get('/mias', requireAuth, reservasControlador.listarMias);

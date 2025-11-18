@@ -1,7 +1,7 @@
 import express from 'express';
 import { body, param } from 'express-validator';
 import apicache from 'apicache';
-import * as turnosControlador from '../controladores/turnoscontrolador.js';
+import * as turnosControlador from '../controladores/turnosControlador.js';
 import { requireAuth, empleadoOAdmin, soloAdmin } from '../middlewares/auth.js';
 
 const router = express.Router();
@@ -140,7 +140,7 @@ const validateTurno = [
 
 //rutas
 
-// GET públicos 
+//GET publicos 
 router.get(
   '/',
   cache('2 minutos'),
@@ -154,7 +154,7 @@ router.get(
   turnosControlador.getTurnoById
 );
 
-// Crear / actualizar: empleado o admin
+//Crear / actualizar: empleado o admin
 router.post(
   '/',
   requireAuth,
@@ -172,7 +172,7 @@ router.put(
   turnosControlador.updateTurno
 );
 
-// Eliminar: solo admin
+//Eliminar: solo admin
 router.delete(
   '/:id',
   requireAuth,

@@ -140,7 +140,7 @@ export const updateReserva = async (id, data) => {
   return r.affectedRows;
 };
 
-//BAJA LÓGICA (Solo Admin)
+//BAJA LOGICA (Solo Admin)
 export const deleteReserva = async (id) => {
   const [r] = await pool.query(
     `

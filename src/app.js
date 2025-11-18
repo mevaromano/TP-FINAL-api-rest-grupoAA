@@ -80,14 +80,14 @@ app.get('/api/ping', (req, res) => {
 async function probarDB() {
   try {
     const [rows] = await pool.query('SELECT 1 + 1 AS resultado');
-    console.log('✔️ MySQL funcionando | Resultado:', rows[0].resultado);
+    console.log(' MySQL funcionando | Resultado:', rows[0].resultado);
   } catch (e) {
-    console.error('❌ Error al conectar a MySQL:', e.message);
+    console.error(' Error al conectar a MySQL:', e.message);
   }
 }
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor en http://localhost:${PORT}`);
+  console.log(` Servidor en http://localhost:${PORT}`);
   probarDB();
 });
